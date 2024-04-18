@@ -1,20 +1,23 @@
-#Base Image
-FROM python:3.9
+# Base image
+FROM python:3.8
 
-#set the working directory inside the calender
+# Set the working directory inside the container
 WORKDIR /app
 
-# copy requirements.txt file
+# Copy the requirements file
 COPY requirements.txt .
 
-#install the dependencies
+# Install the project dependencies
 RUN pip install -r requirements.txt
 
-#copy the application code into the container
+# Copy the application code into the container
 COPY . .
 
-#Expose the port the flask will be listening on
+# Expose the port the Flask application will be listening on
 EXPOSE 5000
 
-CMD [ "python", "app.py" ]
+# Set environment variables, if necessary
+# ENV MY_ENV_VAR=value
 
+# Run the Flask application
+CMD ["python", "app.py"]
