@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.12
+FROM python:3-alpine3.18
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 5000
 
 # Run the Flask application
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
